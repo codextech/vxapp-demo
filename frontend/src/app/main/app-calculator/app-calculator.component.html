@@ -1,0 +1,163 @@
+<section class="main-LandingPageCalcultor" id="Landing-section">
+  <div class="container" style="height: 650px;">
+    <div class="row mar-top-200 col-md-12">
+      <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12 mar-top-35">
+        <h1 class="cover-sec-heading1 font-sec-h1-Page2">APPRAISAL</h1>
+        <p class="lead-page2 color-white">IS HERE TO HELP YOU ESTIMATE THE COST OF YOUR<br />APP IDEA AND GET THE
+          FURTHER ROADMAP OF THE<br />DEVELOPMENT PROCESS.</p>
+        <div class="mar-top-25">
+          <button class="Page2-button1">
+            <h4>Find Out the price</h4>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+        <img src="img/Page2.1.png" class="Page2-header">
+      </div>
+    </div>
+  </div>
+</section>
+
+<form #appForm="ngForm" (ngSubmit)="appEstimation()">
+
+<section class="Page2-Section2" id="selectList">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-xs-12 col-sm-12">
+        <div class="description text-center mar-top-200">
+          <h3 style="font-weight: bolder;">
+            HAVE AN IDEA FOR A MOBILE APP?
+          </h3>
+          <p>
+            Answer the questionnaire to estimate the app idea, see the price of your<br />
+            future app and get started with the development.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngFor="let category of appFeatures" class="row mar-top-50">
+
+      <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-3">
+        <h2 [style.color]="category.color" class="page2-Class-heading">
+          {{category.categoryName}}
+        </h2>
+      </div>
+      <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="row">
+          <div *ngFor="let subcategory of category.subcategories" class="col-md-4 col-xs-12 col-sm-4">
+            <div (click)="onFeatureClick(subcategory.color,subcategory.subCategoryId)" class="pull-right">
+              <button [ngStyle]="{'background-color': subcategory.subCategoryId===featureIndex && featureColor }"
+                [style.border-color]="subcategory.color" class="imageForSelection iosDiv">
+              </button>
+              <div class="top-left-0">{{subcategory.subCategoryName}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-3">
+          <h2 class="page2-Class-heading">
+            DESIGN
+          </h2>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-4">
+          <div class="pull-right">
+          <button  class="imageForSelection simpleDiv">
+          </button>
+          <div class="top-left-0">Simple</div>
+        </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-4">
+          <div class="pull-card-center">
+          <button  class="imageForSelection refinedDiv">
+          </button>
+          <div class="top-left-2">Refined</div>
+        </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-4">
+          <button  class="imageForSelection ownDesignDiv">
+          </button>
+          <div class="top-left">Own Design</div>
+        </div>
+          </div>
+        </div> -->
+
+    </div>
+  </div>
+</section>
+
+<section class="Page2-Section8 mar-top-200">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <h4 class="section2-head1-3 text-center">NEARLY THERE!</h4>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-35">
+        <div class="col-md-2">
+          <span class="text-bolder">NAME</span>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="appCalculateModel.name" type="text" name="name" title="Name" class="info-input">
+        </div>
+        <div class="col-md-2">
+          <span class="text-bolder">COMPANY</span>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="appCalculateModel.company" type="text" name="company" title="Company" class="info-input">
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-15">
+        <div class="col-md-2">
+          <span class="text-bolder">TITLE</span>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="appCalculateModel.title" type="text" name="title" title="Title" class="info-input">
+        </div>
+        <div class="col-md-2">
+          <span class="text-bolder">EMAIL</span>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="appCalculateModel.email"  type="email" name="email" title="Email" class="info-input">
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-15">
+        <div class="col-md-2">
+          <span class="text-bolder">TEL</span>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="appCalculateModel.phone"  type="number" name="number" title="Number" style="width: 93%;" class="info-input">
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-15">
+        <div class="col-md-2 col-md-offset-2">
+          <span class="text-bolder">Starting</span>
+        </div>
+        <div class="col-md-8">
+          <label class="radio-inline">
+            <input type="radio" name="optradio">This Month
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Next Month
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Don't Know
+          </label>
+        </div>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-15">
+        <textarea [(ngModel)]="appCalculateModel.description" name="description"  class="form-control info-textarea" placeholder="Any additional information?" rows="6"
+          id="comment"></textarea>
+      </div>
+      <div class="col-md-offset-2 col-md-8 col-md-offset-2 mar-top-35">
+        <button class="page2-button-center-info">GET MY QUOTE</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</form>

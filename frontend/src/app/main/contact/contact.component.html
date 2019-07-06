@@ -1,0 +1,83 @@
+
+<section class="main-LandingPageContact" id="Landing-section" >
+    <div class="container" style="height: 650px;">
+      <div class="row mar-top-100 col-md-12">
+        <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12 mar-top-35">
+                <h1 class="cover-sec-heading1 font-sec-h1-Page2 mar-top-200 page3-Heading">CONTACT</h1>
+        </div>
+        <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+           <img src="../../../assets/img/contact/contactmainimage.png" class="Page3-header">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contactPageDetails mar-top-200">
+    <div class="container contactSection1-Bg">
+      <div class="row">
+        <form  #contactForm="ngForm" (ngSubmit)="postRequest()">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="row">
+              <h4 class="Contactsection2-head1">CONTACT US</h4>
+              <h2 class="text-center">Let's get in touch</h2>
+            <div class="col-md-12 col-xs-12 col-sm-12 mar-top-35">
+              <textarea  [(ngModel)]="contactModel.message" name="message"
+               rows="10" placeholder="Let us know about your project"
+               class="contactTextArea-Width">
+              </textarea>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12 mar-top-25">
+                <input [(ngModel)]="contactModel.name"  type="text" name="name" class="contactTextInput" placeholder="Full Name">
+              </div>
+               <div class="col-md-4 col-sm-4 col-xs-12 mar-top-25">
+                <input [(ngModel)]="contactModel.email" type="email" name="email" class="contactTextInput" placeholder="Email Address">
+              </div>
+               <div class="col-md-4 col-sm-4 col-xs-12 mar-top-25">
+                <input [(ngModel)]="contactModel.phone" type="number" name="phonenumber" class="contactTextInput" placeholder="Phone Number">
+              </div>
+               <div class="col-md-4 col-sm-4 col-xs-12 mar-top-25">
+                <input [(ngModel)]="contactModel.country" type="text" name="country" class="contactTextInput" placeholder="Country">
+              </div>
+              <div class="col-md-12 col-xs-12 col-sm-12 mar-top-25">
+                <input [(ngModel)]="contactModel.terms" name="terms" type="checkbox" value="Agree">&nbsp;&nbsp;&nbsp;I agree to the Venturex Apps
+                <span>
+                  <a class="contactPrivacyTerms">
+                    <u>Privacy Policy</u>
+                  </a>
+                </span>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 mar-top-35">
+              <label class="switchContact">
+                  <input type="submit">
+                  <span class="slider round">
+                    <h6 style="float: right;margin-right: 33px;">Send Message</h6>
+                  </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container-full mar-top-100">
+      <div class="row">
+        <div class="col-md-2 col-sm-12 col-xs-12">
+          <div class="paris_image">
+            <img src="../../../assets/img/contact/locationparis.png" alt="locationparis">
+            <div class="contactImageEmail"><span class="paris_ContactImage_Heading">EMAIL</span><br>
+              <a href="mailto:info@venturexapps.com" style="color: #eeb052;">info@venturexapps.com</a></div>
+            <div class="contactImageAddress"><span class="paris_ContactImage_Heading">LOCATION</span><br>12 Place de la Defense<br>92974 Paris La, Defense<br>France.</div>
+          </div>
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12">
+          <div class="paris_map">
+            <img src="../../../assets/img/contact/mapparis.png" alt="mapparis">
+            <div class="contactMap_Pointer"><img src="../../../assets/img/contact/dropicon.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
