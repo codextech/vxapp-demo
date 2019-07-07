@@ -66,6 +66,19 @@ exports.getCategories = async (req, res, next) => {
 
 
 
+
+exports.getappEstimation = async (req, res, next) => {
+  const model = req.body;
+  try {
+     await  homeHelper.saveAppEstimation(model);
+
+  } catch (error) {
+   genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Rquest Added",null);
+}
+
+
 // exports.getSubCategories = async (req, res, next) => {
 //   var subCategories;
 //   try {

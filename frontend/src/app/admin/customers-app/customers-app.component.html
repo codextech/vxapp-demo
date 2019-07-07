@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+ <div class="padding">
+  <div class="row">
+
+    <div class="col-md-12 table-responsive">
+      <div class="box">
+          <div class="box-body">
+        <ngx-table [configuration]="configuration" [data]="customerAppRequests" [columns]="columns">
+          <ng-template let-row let-index="index">
+            <td>{{ row.name }}</td>
+            <td>{{ row.email }}</td>
+            <td>{{ row.phone }}</td>
+            <td>{{ row.company }}</td>
+            <td>{{ row.description }}</td>
+            <td class="fit">
+              <button (click)="appModal.open(); customerAppDetail(row.appEstimateId) "
+                class="btn btn-outline b-accent text-accent">
+                <i class="fa fa-info"></i>
+              </button>
+            </td>
+          </ng-template>
+        </ngx-table>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    <ngx-smart-modal
+#appModal
+identifier="appModal"
+customClass="nsm-dialog-animation-ttb">
+
+
+  <div class="modal-body text-center">
+      <p class="py-3 mt-3">
+         <b> Customer App Details</b>
+          <br>
+          <i class="fa fa-info-circle text-primary fa-4x"></i>
+      </p>
+      <p>
+        <button type="button" *ngFor="let app of customerAppDetail"
+          class="pr-3 m-2 btn" style="color: black" [style.background]="app.color">
+          {{app.subCategoryName}}
+        </button>
+      </p>
+
+  </div>
+  <div class="modal-footer">
+      <button class="btn white" type="button"
+       (click)="appModal.close()" >Close</button>
+
+  </div>
+
+
+</ngx-smart-modal>

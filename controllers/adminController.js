@@ -9,14 +9,28 @@ exports.addBlog = async (req, res, next) => {
   try {
 
   var imageUrl = genericHelper.getImageUrlFromArray(req, req.files[0]);
-  model.blogImage = imageUrl;
-     await  adminHelper.addBlog(model);
+  const blogModel = {
+    blogTitle: model.blogTitle,
+    blogDescription: model.blogDescription,
+    blogImage: imageUrl,
+  }
+     await  adminHelper.addBlog(blogModel);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
   genericHelper.jsonResponse(res,200,"Blog Added",null);
 }
 
+exports.getBlogDetails = async (req, res, next) => {
+  var id = req.query.blogId;
+  var blogDetails;
+  try {
+    blogDetails =  await  adminHelper.getSingleBlog(id);
+  } catch (error) {
+   genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Rquests",blogDetails);
+}
 
 /* User contact Requests */
 
@@ -46,14 +60,28 @@ exports.readContactRequests = async (req, res, next) => {
 
 exports.addCategory = async (req, res, next) => {
   var model = req.body;
+  var category;
   try {
 
-     await  adminHelper.addCategory(model);
+    category =  await  adminHelper.addCategory(model);
   } catch (error) {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
-  genericHelper.jsonResponse(res,200,"Category Added",null);
+  genericHelper.jsonResponse(res,200,"Category Added",category);
 }
+
+exports.deleteCategory = async (req, res, next) => {
+  var id = req.query.categoryId;
+  try {
+
+      await  adminHelper.removeCategory(id);
+  } catch (error) {
+  genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"Category Deleted",null);
+}
+
+
 
 
 
@@ -70,4 +98,17 @@ exports.addSubCategory = async (req, res, next) => {
   genericHelper.jsonResponse(res,500,"Bad Request",error);
   }
   genericHelper.jsonResponse(res,200,"SubCategory Added",null);
+}
+
+
+
+
+exports.getCustomerAppRequests = async (req, res, next) => {
+  var requests;
+  try {
+    requests =  await  adminHelper.getCustomerAppRequests();
+  } catch (error) {
+   genericHelper.jsonResponse(res,500,"Bad Request",error);
+  }
+  genericHelper.jsonResponse(res,200,"App Estimation Rquests",requests);
 }

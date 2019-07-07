@@ -4,6 +4,7 @@ import { AddBlogComponent } from 'src/app/admin/add-blog/add-blog.component';
 import { ContactRequestsComponent } from 'src/app/admin/contact-requests/contact-requests.component';
 import { AddCategoryComponent } from 'src/app/admin/category/add-category/add-category.component';
 import { AddSubcategoryComponent } from 'src/app/admin/category/add-subcategory/add-subcategory.component';
+import { CustomersAppComponent } from 'src/app/admin/customers-app/customers-app.component';
 
 export const ADMIN_LAYOUTS_ROUTES: Routes = [
 
@@ -31,6 +32,11 @@ export const ADMIN_LAYOUTS_ROUTES: Routes = [
 {
   path: 'add-sub-category',
   component: AddSubcategoryComponent
+},
+
+{
+  path: 'customer-app-requests',
+  component: CustomersAppComponent
 },
     ]
   }

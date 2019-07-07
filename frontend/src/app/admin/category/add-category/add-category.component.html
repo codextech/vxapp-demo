@@ -71,6 +71,26 @@
 
 
 
+    <div class="col-md-12 table-responsive">
+        <div class="box">
+            <div class="box-body">
+          <ngx-table [configuration]="configuration" [data]="categories" [columns]="columns">
+            <ng-template let-row let-index="index">
+              <td>{{ row.categoryName }}</td>
+              <td [style.background-color]="row.color"></td>
+
+              <td class="fit">
+                <button
+                  class="btn btn-outline b-danger text-danger">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </ng-template>
+          </ngx-table>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>

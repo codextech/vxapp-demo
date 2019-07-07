@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/_services/main.service';
 import { IContact } from 'src/app/_interfaces/IContact';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +21,9 @@ export class ContactComponent implements OnInit {
     terms: false,
     isRead: false
   };
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -27,6 +31,8 @@ export class ContactComponent implements OnInit {
   postRequest() {
       this.mainService.addUserRequest(this.contactModel).subscribe( res => {
         console.log(res);
+        this.router.navigateByUrl('/');
+      this.toastr.success('Request Submitted');
       }, err => {
         console.log(err);
       });

@@ -5,6 +5,7 @@ import { AboutComponent } from 'src/app/main/about/about.component';
 import { FeaturesComponent } from 'src/app/main/features/features.component';
 import { AppCalculatorComponent } from 'src/app/main/app-calculator/app-calculator.component';
 import { BlogsComponent } from 'src/app/main/blogs/blogs.component';
+import { BlogDetailsComponent } from 'src/app/main/blog-details/blog-details.component';
 
 
 
@@ -16,6 +17,7 @@ export const LANDING_LAYOUTS_ROUTES: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'features', component: FeaturesComponent },
   { path: 'blogs', component: BlogsComponent },
+  { path: 'blog-details/:id', component: BlogDetailsComponent },
   { path: 'app-calculator', component: AppCalculatorComponent },
 
 

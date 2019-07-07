@@ -3,6 +3,7 @@ const Blog = require("../models/blog");
 const Contact = require("../models/contact");
 const Category = require("../models/app-category");
 const SubCategory = require("../models/app-subcategory");
+const AppEstimate = require("../models/app-estimate");
 const genericHelper = require("../helpers/genericHelper");
 
 /* Contacts */
@@ -52,20 +53,35 @@ exports.addBlog = async (model) => {
 }
 
 
+
+
 /* App Calculator */
 
 exports.addCategory = async (model) => {
 
+  var category;
   try {
-     await Category.create({
+    category = await Category.create({
        categoryName : model.categoryName,
        color: model.color
      });
   } catch (error) {
      console.log(error);
   }
+  return category;
 }
 
+
+exports.removeCategory = async (id) => {
+
+  try {
+     await Category.destroy({
+       where: {categoryId: id}
+     });
+  } catch (error) {
+     console.log(error);
+  }
+}
 
 exports.addSubCategory = async (model) => {
 
@@ -79,4 +95,29 @@ exports.addSubCategory = async (model) => {
   } catch (error) {
      console.log(error);
   }
+}
+
+
+exports.getCustomerAppRequests = async () => {
+
+  var appRequests;
+  try {
+
+   appRequests =  await AppEstimate.findAll({
+      include: [{
+        model: SubCategory,
+        as: 'subCategories',
+      }],
+      order: [['createdAt', 'DESC']],
+  })
+
+    // subCategories = await Category.findAll({
+    //   order: [['createdAt', 'DESC']],
+    //   include: [{model: SubCategory, as: 'subcategories'}]
+    // });
+
+  } catch (error) {
+      console.log(error);
+  }
+  return appRequests;
 }

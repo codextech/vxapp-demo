@@ -57,14 +57,19 @@
 
               <div class="form-group col-md-12">
                 <label>Blog Description</label>
-                <textarea [(ngModel)]="blogModel.blogDescription" name="blogDescription" type="text"
+                <!-- <textarea [(ngModel)]="blogModel.blogDescription" name="blogDescription" type="text"
                   class="form-control" id="rn" placeholder="Description">
-                    </textarea>
+                    </textarea> -->
+
+                    <ejs-richtexteditor [insertImageSettings]="insertImageConfig"
+                     [(ngModel)]="blogModel.blogDescription" name="blogDescription"></ejs-richtexteditor>
               </div>
 
 
+
+
               <dropzone class="dropzone-container" [config]="config" (error)="onUploadError($event)"
-                (sending)="onSending($event)" [message]="'Click or drag Blog image here to upload'"></dropzone>
+                (sending)="onSending($event)" (success)="onSuccess($event)" [message]="'Click or drag Blog image here to upload'"></dropzone>
 
 
             </div>

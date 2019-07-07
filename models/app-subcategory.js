@@ -3,7 +3,7 @@ const Category = require("../models/app-category");
 
 const sequelize = require("../util/database");
 
-const SubCategory = sequelize.define('subcategory', {
+const SubCategory = sequelize.define('subCategory', {
   subCategoryId: {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV1,

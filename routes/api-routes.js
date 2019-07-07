@@ -16,6 +16,17 @@ const fileStorage = multer.diskStorage({
   }
 });
 
+
+const fileStorageWithoutChangnigName = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./uploads");
+  },
+
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
 // -------------------------------------------------------
 
 
@@ -32,8 +43,13 @@ router.post("/admin/blog",
 multer({ storage: fileStorage }).any(),
   adminController.addBlog);
 
+  router.post("/admin/blogimages",
+multer({ storage: fileStorageWithoutChangnigName }).any());
+
 router.post("/admin/category", adminController.addCategory);
+router.delete("/admin/category", adminController.deleteCategory);
 router.post("/admin/sub-category", adminController.addSubCategory);
+router.get("/admin/customer-app", adminController.getCustomerAppRequests);
 
 
 
@@ -45,6 +61,7 @@ router.post("/main/contact", homeController.addUserRequest);
 router.get("/main/blog", homeController.getBlogs);
 router.get("/main/blog-details", homeController.getBlogById);
 router.get("/main/category", homeController.getCategories);
+router.post("/main/app-estimate", homeController.getappEstimation);
 // router.get("/main/sub-category", homeController.getSubCategories);
 
 

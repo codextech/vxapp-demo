@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/_services/main.service';
 import { IAppFeature } from 'src/app/_interfaces/IAppFeature';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-app-calculator',
@@ -16,7 +18,9 @@ export class AppCalculatorComponent implements OnInit {
   appCalculateModel: IAppFeature = {name: '', title: '', phone: '', company: '',
     description: '', email: '', features: []};
 
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService,
+     private router: Router,
+     private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAppFeatures();
@@ -33,8 +37,14 @@ export class AppCalculatorComponent implements OnInit {
 
   appEstimation() {
 
-    console.log(this.appCalculateModel);
+    this.mainService.appEstimation(this.appCalculateModel).subscribe( res => {
+      console.log(res);
+      this.router.navigateByUrl('/');
+      this.toastr.success('Thank you! Our team will cotanct you soon');
 
+    }, err => {
+      console.log(err);
+    });
   }
 
   onFeatureClick(color, id) {
@@ -42,6 +52,6 @@ export class AppCalculatorComponent implements OnInit {
     this.featureColor = color;
     // add feature to Model
 
-    this.appCalculateModel.features.push({subCategoryId: id});
+    this.appCalculateModel.features.push(id);
   }
 }

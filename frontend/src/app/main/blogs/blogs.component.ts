@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/_services/main.service';
 import { IBlog } from 'src/app/_interfaces/IBlog';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blogs',
@@ -10,7 +11,7 @@ import { IBlog } from 'src/app/_interfaces/IBlog';
 export class BlogsComponent implements OnInit {
 
   blogs: IBlog[] = [];
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService,private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.getBlogs();
@@ -24,5 +25,4 @@ export class BlogsComponent implements OnInit {
       console.log(err);
     });
   }
-
 }

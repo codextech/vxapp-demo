@@ -72,7 +72,7 @@ sequelize
    .sync()
 //  .sync({force: true})
   .then(result => {
-  console.log('table created');
+  console.log('tables created');
 }).catch(err => {
     console.log("error occured in db" + err);
   });

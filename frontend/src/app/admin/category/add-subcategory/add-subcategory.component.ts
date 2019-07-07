@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/_services/admin.service';
 import { ISubCategory } from 'src/app/_interfaces/ISubCategory';
 import { MainService } from 'src/app/_services/main.service';
 import { ICategory } from 'src/app/_interfaces/ICategory';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-subcategory',
@@ -13,7 +14,9 @@ export class AddSubcategoryComponent implements OnInit {
 
   categories: ICategory[] = [];
   subCategoryModel: ISubCategory = {categoryId: '', subCategoryName: '', color: '' };
-  constructor(private adminService: AdminService, private mainService: MainService) { }
+  constructor(private adminService: AdminService,
+    private toastr: ToastrService,
+     private mainService: MainService) { }
 
   ngOnInit() {
     this.getCategrories();
@@ -23,7 +26,8 @@ export class AddSubcategoryComponent implements OnInit {
     console.log(this.subCategoryModel);
 
     this.adminService.addSubCategory(this.subCategoryModel).subscribe( res => {
-      console.log(res);
+    this.toastr.success('SubCategory Added');
+
     }, err => {
       console.log(err);
     });

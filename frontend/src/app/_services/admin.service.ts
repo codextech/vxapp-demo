@@ -26,8 +26,20 @@ addCategory(model) {
   return this.http.post<any>(environment.apiUrl + 'api/admin/category', model);
 }
 
+deleteCategory(id) {
+  return this.http.delete<any>(environment.apiUrl + 'api/admin/category', {
+    params: {categoryId: id}
+  });
+}
+
 addSubCategory(model) {
   return this.http.post<any>(environment.apiUrl + 'api/admin/sub-category', model);
 }
+
+getAppRequests() {
+  return this.http.get<any>(environment.apiUrl + 'api/admin/customer-app');
+}
+
+
 
 }

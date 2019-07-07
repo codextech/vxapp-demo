@@ -1,9 +1,12 @@
 
+var Sequelize = require('sequelize');
+var Op = Sequelize.Op;
 
 const Blog = require("../models/blog");
 const Contact = require("../models/contact");
 const Category = require("../models/app-category");
 const SubCategory = require("../models/app-subcategory");
+const AppEstimate = require("../models/app-estimate");
 
 
 
@@ -66,3 +69,34 @@ exports.getCategories = async () => {
   }
   return subCategories;
 }
+
+exports.saveAppEstimation = async (model) => {
+
+  try {
+    var appEstimate = await AppEstimate.create(
+      {
+      email: model.email,
+      phone:model.phone,
+      name:model.name,
+      description: model.description,
+      title: model.title,
+      company: model.company,
+      startingDate: model.startingDate,
+    }
+    );
+
+
+    // var id =  model.features[0];
+
+    await appEstimate.addSubCategories(model.features);
+
+
+  } catch (error) {
+      console.log(error);
+  }
+
+
+
+}
+
+

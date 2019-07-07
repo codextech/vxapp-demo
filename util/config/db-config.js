@@ -9,10 +9,10 @@ const config = {
   },
 
   "production":{
-    // "host":"ftp.youseva.com",
-    // "user":"yousevac_echeck",
-    // "password":"Echeck9477#",
-    // "database":"yousevac_echeck"
+    "host":"localhost:3306",
+     "user":"tanzeel",
+     "password":"tanzeel10$",
+     "database":"admin_vxapp"
 }
 
 }

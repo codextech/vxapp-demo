@@ -18,11 +18,24 @@ export class MainService {
     return this.http.get<any>(environment.apiUrl + 'api/main/blog');
   }
 
+  getBlogDetails(id) {
+    return this.http.get<any>(environment.apiUrl + 'api/main/blog-details', {
+      params: {blogId : id}
+    });
+  }
+
   getCategrories() {
     return this.http.get<any>(environment.apiUrl + 'api/main/category');
   }
 
+
+
+
   // getSubCategrories() {
   //   return this.http.get<any>(environment.apiUrl + 'api/main/sub-category');
   // }
+
+  appEstimation(model) {
+    return this.http.post<any>(environment.apiUrl + 'api/main/app-estimate', model);
+  }
 }

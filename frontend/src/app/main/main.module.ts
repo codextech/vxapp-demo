@@ -8,11 +8,16 @@ import { FeaturesComponent } from './features/features.component';
 import { AppCalculatorComponent } from './app-calculator/app-calculator.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { FormsModule } from '@angular/forms';
+import { SafeHtmlPipe } from '../_pipe/safeHtml.pipe';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   imports: [
     CommonModule,
     SharedUIModule,
+    RouterModule,
     HomeModule,
     FormsModule,
   ],
@@ -22,7 +27,10 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     FeaturesComponent,
     AppCalculatorComponent,
-    BlogsComponent
-  ]
+    BlogsComponent,
+    BlogDetailsComponent,
+    SafeHtmlPipe
+  ],
+  exports: [SafeHtmlPipe]
 })
 export class MainModule { }

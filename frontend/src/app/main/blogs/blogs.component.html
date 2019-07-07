@@ -27,8 +27,9 @@
                 <div class="card cardForBlogs">
                     <img [src]="blog.blogImage" alt="{{blog.blogTitle}}" style="width:100%;">
                     <p class="blog-heading">{{blog.blogTitle}}</p>
-                    <p class="title-details">{{blog.blogDescription}}</p>
-                    <p class="bolg-deatils">Read More>>> </p>
+                    <!-- <p class="title-details">{{blog.blogDescription}}</p> -->
+                    <p [routerLink]="['/blog-details', blog.blogId]"
+                     class="bolg-deatils">Read More>>> </p>
                 </div>
               </div>
 

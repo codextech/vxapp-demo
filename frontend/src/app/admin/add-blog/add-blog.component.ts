@@ -2,11 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DropzoneConfigInterface, DropzoneComponent, DropzoneDirective } from 'ngx-dropzone-wrapper';
 import { IBlog } from 'src/app/_interfaces/IBlog';
-
+import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-blog',
   templateUrl: './add-blog.component.html',
-  styleUrls: ['./add-blog.component.css']
+  styleUrls: ['./add-blog.component.css'],
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
 })
 export class AddBlogComponent implements OnInit {
   public config: DropzoneConfigInterface = {
@@ -24,14 +26,22 @@ export class AddBlogComponent implements OnInit {
   @ViewChild(DropzoneDirective) directiveRef?: DropzoneDirective;
 
   blogModel: IBlog = {
+    blogId: '',
     blogTitle: '',
     blogDescription: '',
     blogImage: null
   };
-  constructor() { }
+
+  insertImageConfig = {
+    saveUrl: `${environment.apiUrl}api/admin/blogimages`,
+    path: `${environment.apiUrl}uploads/`
+};
+
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit() {
   }
+
 
 
   addBlog() {
@@ -48,7 +58,13 @@ export class AddBlogComponent implements OnInit {
 
   public onUploadError(args: any): void {
     console.log('error:', args);
-  }
+    this.toastr.error('Something Wrong');
 
+
+  }
+  public onSuccess(args: any): void {
+    this.toastr.success('Request Submitted');
+
+  }
 
 }
