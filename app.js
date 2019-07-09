@@ -22,8 +22,9 @@ app.listen(port, () => {
 var env = process.env.NODE_ENV || 'dev';
 console.log(env);
 if (env == 'production') {
-global.APIURL = "http://venturexappsdemo.com/api";
-global.APPURL = "http://venturexappsdemo.com/";
+global.APIURL = "http://vxappdemo.venturexglobal.com/";
+global.APPURL = "http://vxappdemo.venturexglobal.com/";
+
 }
 if (env == 'dev') {
 global.APIURL = "http://localhost:3000/api";
@@ -59,9 +60,9 @@ app.use('/',express.static(path.join(__dirname, './angular')));
 app.use('/api', apiRoutes);
 
 // access angular page according to routes
-app.use((req,res) => {
-  res.sendFile(path.join(__dirname,"angular", "index.html"));
-})
+// app.use((req,res) => {
+//   res.sendFile(path.join(__dirname,"angular", "index.html"));
+// })
 
 
 

@@ -1,0 +1,18 @@
+
+
+a{
+  text-decoration: none;
+}
+
+
+.calculator{
+  color: #eeac50;
+  font-family: 'Montserrat';
+}
+
+.calculator:hover{
+  background-color: #eeac50;
+  color: #253a60;
+  border-color: #253a60;
+
+}

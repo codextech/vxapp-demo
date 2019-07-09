@@ -25,7 +25,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#efa858',
   fgsSize: 50,
   overlayColor: '#253a60',
-  fgsType: SPINNER.wanderingCubes,
+  fgsType: SPINNER.circle,
 };
 
 @NgModule({

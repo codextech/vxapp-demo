@@ -58,9 +58,22 @@
 
               <div class="form-group col-md-3">
                   <label>Choose Color</label>
-                  <input [(ngModel)]="categoryModel.color" name="color" type="color" value="#ff0000" class="form-control" id="rn"
+                  <input disabled [(ngModel)]="categoryModel.color" name="color" type="color" value="#ff0000" class="form-control" id="rn"
                     />
-                </div>
+
+                    <label class="orange-color radio-div">
+                        <input [(ngModel)]="categoryModel.color" name="orange" type="radio" name="color" value="#fea301">
+                        <div class="layer"></div>
+                        <div class="color-picker"><span id="orange-span"></span></div>
+                    </label>
+
+                    <label class="blue-color radio-div">
+                        <input [(ngModel)]="categoryModel.color" name="blue"  type="radio" name="color" value="#253a60">
+                        <div class="layer"></div>
+                        <div class="color-picker"><span id="blue-span"></span></div>
+                    </label>
+
+               </div>
 
 
               <button type="submit" class="btn primary">Submit</button>

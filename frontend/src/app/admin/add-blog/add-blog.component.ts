@@ -28,6 +28,7 @@ export class AddBlogComponent implements OnInit {
   blogModel: IBlog = {
     blogId: '',
     blogTitle: '',
+    blogShortDescription: '',
     blogDescription: '',
     blogImage: null
   };

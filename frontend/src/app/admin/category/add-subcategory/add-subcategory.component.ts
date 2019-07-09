@@ -41,4 +41,9 @@ export class AddSubcategoryComponent implements OnInit {
       console.log(err);
     });
   }
+
+  onChangeCategory(id) {
+    const category =  this.categories.find(item => item.categoryId === id);
+    this.subCategoryModel.color = category.color;
+  }
 }

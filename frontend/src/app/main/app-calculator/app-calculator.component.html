@@ -1,6 +1,6 @@
 <section class="main-LandingPageCalcultor" id="Landing-section">
-  <div class="container" style="height: 650px;">
-    <div class="row mar-top-200 col-md-12">
+  <div class="container" style="height: 470px;">
+    <div class="row mar-top-100 col-md-12">
       <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12 mar-top-35">
         <h1 class="cover-sec-heading1 font-sec-h1-Page2">APPRAISAL</h1>
         <p class="lead-page2 color-white">IS HERE TO HELP YOU ESTIMATE THE COST OF YOUR<br />APP IDEA AND GET THE
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-        <img src="img/Page2.1.png" class="Page2-header">
+        <img src="../../../assets/img/Page2.1.png" class="Page2-header">
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
         <div class="row">
           <div *ngFor="let subcategory of category.subcategories" class="col-md-4 col-xs-12 col-sm-4">
             <div (click)="onFeatureClick(subcategory.color,subcategory.subCategoryId)" class="pull-right">
-              <button type="button" [ngStyle]="{'background-color': subcategory.subCategoryId===featureIndex && featureColor }"
+              <button type="button" [ngStyle]="{'background': subcategory.subCategoryId===featureIndex && 'linear-gradient(to right, rgba(202, 197, 197, 0.08),'+featureColor +')' }"
                 [style.border-color]="subcategory.color" class="imageForSelection iosDiv">
               </button>
               <div class="top-left-0">{{subcategory.subCategoryName}}</div>

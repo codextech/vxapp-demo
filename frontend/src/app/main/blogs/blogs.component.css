@@ -1,5 +1,17 @@
 
 
+.Page2-header{
+  height: 300px;
+}
+
+.cardForVideos{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border-radius: 15px;
+}
+
 .cardForBlogs{
   height: 400px;
   margin-top: 3rem;
@@ -28,4 +40,17 @@ margin: 13px;
 margin-top: 2rem;
 color: #e0981b;
 cursor: pointer;
+}
+
+
+
+
+#player {
+  max-width: 100%;
+}
+
+
+:host ::ng-deep .plyr__control--overlaid {
+  background: rgb(238, 173, 81);
+  padding: 20px;
 }

@@ -49,7 +49,9 @@
 
                   <div class="form-group col-md-12">
                       <label>Choose Category</label>
-                      <select [(ngModel)]="subCategoryModel.categoryId" name="categoryId" class="form-control">
+                      <select [(ngModel)]="subCategoryModel.categoryId" name="categoryId"
+                      (change)="onChangeCategory($event.target.value)"
+                       class="form-control">
                         <option disabled value="0">Select Category</option>
                         <option *ngFor="let category of categories" [value]="category.categoryId">
                            {{category.categoryName}}
@@ -66,8 +68,8 @@
               </div>
 
               <div class="form-group col-md-3">
-                  <label>Choose Color</label>
-                  <input [(ngModel)]="subCategoryModel.color" name="color" type="color" value="#ff0000" class="form-control"
+                  <label>Color</label>
+                  <input disabled [(ngModel)]="subCategoryModel.color" name="color" type="color" value="#ff0000" class="form-control"
                    />
                 </div>
 

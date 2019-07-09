@@ -1,6 +1,6 @@
 <section class="main-LandingPageCalcultor" id="Landing-section" >
-    <div class="container" style="height: 650px;">
-      <div class="row mar-top-200 col-md-12">
+    <div class="container" style="height: 470px;">
+      <div class="row mar-top-100 col-md-12">
         <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12 mar-top-35">
                 <h1 class="cover-sec-heading1 font-sec-h1-Page2">Blogs</h1>
                 <p class="lead-page2 color-white">
@@ -18,6 +18,18 @@
     </div>
   </section>
 
+  <section class="Page2-Section2">
+      <div class="container">
+
+      <div class="row mar-top-100">
+          <div  class="col-md-12 col-sm-12 col-xs-12">
+              <video poster="../../../assets/img/page2.2.png" id="player" playsinline controls>
+                <source src="../../../assets/video.mp4" type="video/mp4" />
+            </video>
+            </div>
+          </div>
+</div>
+  </section>
 
 
   <section class="Page2-Section2" id="selectList">
@@ -27,7 +39,7 @@
                 <div class="card cardForBlogs">
                     <img [src]="blog.blogImage" alt="{{blog.blogTitle}}" style="width:100%;">
                     <p class="blog-heading">{{blog.blogTitle}}</p>
-                    <!-- <p class="title-details">{{blog.blogDescription}}</p> -->
+                    <p class="title-details">{{blog.blogShortDescription}}</p>
                     <p [routerLink]="['/blog-details', blog.blogId]"
                      class="bolg-deatils">Read More>>> </p>
                 </div>
